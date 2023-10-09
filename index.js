@@ -2,8 +2,9 @@ const express = require("express");
 const app = express();
 const cloudinary = require('cloudinary').v2
 require('dotenv').config();
+const cors = require('cors')
 
-// app.use(cors());
+app.use(cors());
 
 cloudinary.config({
     cloud_name: process.env.CLOUDNAME,
