@@ -4,7 +4,22 @@ const cloudinary = require('cloudinary').v2
 require('dotenv').config();
 const cors = require('cors')
 
-app.use(cors());
+const corsOptions = {
+    origin: 'http://localhost:3000',
+    methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
+    credentials: true,
+    optionsSuccessStatus: 204,
+};
+
+// const corsOptions = {
+//     origin: 'https://alex-grimes-fullstack.herokuapp.com',
+//     methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
+//     credentials: true,
+//     optionsSuccessStatus: 204,
+// };
+
+
+app.use(cors(corsOptions));
 
 cloudinary.config({
     cloud_name: process.env.CLOUDNAME,
@@ -24,7 +39,7 @@ app.get('/api/videos', async (req, res) => {
     }
 })
 
-const port = 3001
+const port = process.env.PORT || 3001;
 app.listen(port, () => {
     console.log(`Server is running on port ${port}`)
 })
