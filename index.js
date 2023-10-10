@@ -18,7 +18,7 @@ cloudinary.config({
     api_secret: process.env.CLOUDINARYSECRET,
 })
 
-app.get('api/videos', async (req, res) => {
+app.get('/api/videos', async (req, res) => {
     console.log("hello?")
     try {
         const result = await cloudinary.api.resources({ resource_type: 'video' })
