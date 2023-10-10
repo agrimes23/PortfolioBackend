@@ -6,7 +6,7 @@ const cors = require('cors')
 
 const corsOptions = {
     origin: ['https://alex-grimes-fullstack.herokuapp.com', 'http://localhost:3000' ],
-    methods: 'GET,,PUT,POST,DELETE',
+    methods: 'GET,PUT,POST,DELETE',
     credentials: true,
 };
 
